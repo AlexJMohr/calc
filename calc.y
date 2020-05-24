@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 void yyerror(const char *s);
+int yylex(void);
 
 int syms[52] = {0};
 int symVal(char sym);
@@ -12,8 +13,7 @@ void putSym(char sym, int val);
 
 %union {int num; char id;}
 %start commands
-%token PRINT
-%token EXIT
+%token PRINT EXIT
 %token <num> NUM
 %token <id> IDENTIFIER
 %type <num> line exp term
